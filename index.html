@@ -1,361 +1,194 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página Secreta | Todo livro guarda um segredo</title>
-  <meta name="description" content="Um clube literário feito por mulheres apaixonadas por histórias, livros e segredos.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Caveat:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            vinho: '#4A0E17',
-            vinhoEscuro: '#2B0A10',
-            rosa: '#E8BFC6',
-            rosaClaro: '#F6E3E6',
-            creme: '#FDFBF7',
-            preto: '#121212'
-          },
-          fontFamily: {
-            titulo: ['Cinzel', 'serif'],
-            texto: ['Plus Jakarta Sans', 'sans-serif'],
-            manuscrita: ['Caveat', 'cursive']
-          }
-        }
-      }
-    };
-  </script>
-  <style>
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página Secreta | Todo livro guarda um segredo</title>
 
-    body {
-      margin: 0;
-      background: #121212;
-      color: #FDFBF7;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-image: radial-gradient(#4A0E17 .8px, transparent .8px);
-      background-size: 20px 20px;
-    }
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Caveat:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    .papel {
-      background-color: #FDFBF7;
-      background-image: radial-gradient(#E8BFC6 .7px, transparent .7px);
-      background-size: 13px 13px;
-      color: #121212;
-    }
+<style>
+:root {
+  --vinho: #4A0E17;
+  --preto: #121212;
+  --rosa: #E8BFC6;
+  --creme: #FDFBF7;
+}
 
-    .botao {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 12px 20px;
-      border: 1px solid #4A0E17;
-      border-radius: 4px;
-      background: #4A0E17;
-      color: #FDFBF7;
-      font-family: 'Cinzel', serif;
-      font-size: 12px;
-      letter-spacing: 1px;
-      text-align: center;
-      transition: .25s;
-    }
+* { box-sizing: border-box; scroll-behavior: smooth; }
 
-    .botao:hover {
-      background: #E8BFC6;
-      color: #121212;
-      border-color: #E8BFC6;
-    }
+body {
+  margin: 0;
+  background: var(--preto);
+  color: var(--creme);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-image: radial-gradient(#4A0E17 .8px, transparent .8px);
+  background-size: 20px 20px;
+}
 
-    .botao-claro {
-      background: transparent;
-      color: #4A0E17;
-    }
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(18,18,18,.97);
+  border-bottom: 1px solid var(--vinho);
+}
 
-    .selo {
-      width: 48px;
-      height: 48px;
-      border: 1px solid #E8BFC6;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: #E8BFC6;
-      font-family: 'Cinzel', serif;
-      font-size: 17px;
-    }
+.container {
+  width: min(1100px, 100%);
+  margin: auto;
+  padding: 0 22px;
+}
 
-    .menu-link {
-      color: #FDFBF7;
-      font-size: 11px;
-      letter-spacing: 1px;
-      transition: color .2s;
-    }
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
 
-    .menu-link:hover {
-      color: #E8BFC6;
-    }
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--creme);
+}
 
-    .titulo-secao {
-      font-family: 'Cinzel', serif;
-      color: #E8BFC6;
-      letter-spacing: 2px;
-    }
+.selo {
+  width: 45px;
+  height: 45px;
+  border: 1px solid var(--rosa);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--rosa);
+  font-family: 'Cinzel', serif;
+}
 
-    .linha-rosa {
-      width: 70px;
-      height: 3px;
-      background: #E8BFC6;
-    }
+.marca h1 {
+  font: 500 14px 'Cinzel', serif;
+  letter-spacing: 2px;
+  margin: 0 0 4px;
+}
 
-    .texto-manuscrito {
-      font-family: 'Caveat', cursive;
-      color: #4A0E17;
-    }
+.marca p {
+  font-size: 9px;
+  letter-spacing: 1px;
+  margin: 0;
+  color: var(--rosa);
+}
 
-    .cartao {
-      position: relative;
-      background: #FDFBF7;
-      color: #121212;
-      border: 1px solid #E8BFC6;
-      border-radius: 5px;
-      box-shadow: 4px 4px 0 #4A0E17;
-    }
+nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
 
-    .cartao-fita {
-      position: absolute;
-      top: -9px;
-      left: 50%;
-      transform: translateX(-50%) rotate(-3deg);
-      width: 72px;
-      height: 18px;
-      background: #E8BFC6;
-      opacity: .9;
-    }
+nav a {
+  color: var(--creme);
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
 
-    .corvo {
-      display: block;
-      width: 100%;
-      max-width: 540px;
-      height: auto;
-      margin: 0 auto;
-      object-fit: contain;
-    }
+nav a:hover { color: var(--rosa); }
 
-    .cabecalho {
-      background: rgba(18, 18, 18, .97);
-      border-bottom: 1px solid rgba(74, 14, 23, .8);
-    }
+.hero {
+  margin-top: 18px;
+  background-color: var(--creme);
+  background-image: radial-gradient(var(--rosa) .7px, transparent .7px);
+  background-size: 13px 13px;
+  color: var(--preto);
+  border-radius: 10px;
+  overflow: hidden;
+}
 
-    @media (max-width: 640px) {
-      .selo {
-        width: 38px;
-        height: 38px;
-        font-size: 14px;
-      }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 30px;
+  padding: 42px;
+}
 
-      .menu-link {
-        font-size: 9px;
-        letter-spacing: .4px;
-      }
+.etiqueta {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--vinho);
+  margin-bottom: 20px;
+}
 
-      .corvo {
-        max-width: 390px;
-      }
-    }
-  </style>
-</head>
+h2, h3 { font-family: 'Cinzel', serif; }
 
-<body>
-  <header class="cabecalho">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-3">
-      <a href="#inicio" class="flex items-center gap-3 min-w-0">
-        <div class="selo">PS</div>
-        <div class="min-w-0">
-          <h1 class="font-titulo text-xs sm:text-base tracking-widest text-creme">PÁGINA SECRETA</h1>
-          <p class="text-[9px] sm:text-xs text-rosa tracking-wide">TODO LIVRO GUARDA UM SEGREDO</p>
-        </div>
-      </a>
+.hero h2 {
+  font-size: clamp(28px, 4vw, 45px);
+  line-height: 1.35;
+  font-weight: 400;
+  color: var(--vinho);
+  margin: 0;
+}
 
-      <nav class="flex items-center gap-2 sm:gap-6">
-        <a href="#inicio" class="menu-link">INÍCIO</a>
-        <a href="#clube" class="menu-link">O CLUBE</a>
-        <a href="#leituras" class="menu-link">LEITURAS</a>
-        <a href="#encontros" class="menu-link">ENCONTROS</a>
-      </nav>
-    </div>
-  </header>
+.linha {
+  height: 3px;
+  width: 75px;
+  background: var(--rosa);
+  margin: 25px 0;
+}
 
-  <main id="inicio" class="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+.descricao {
+  color: #626262;
+  font-size: 15px;
+  line-height: 2;
+}
 
-    <section class="papel rounded-lg overflow-hidden">
-      <div class="grid md:grid-cols-2 items-center gap-5 sm:gap-8 p-6 sm:p-10 lg:p-12">
+.manuscrita {
+  font: 32px 'Caveat', cursive;
+  color: var(--vinho);
+  line-height: 1.35;
+}
 
-        <div class="py-2">
-          <p class="text-xs sm:text-sm tracking-[3px] text-vinho mb-5">
-            UM REFÚGIO ENTRE PÁGINAS
-          </p>
+.botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
 
-          <h2 class="font-titulo text-3xl sm:text-4xl lg:text-5xl leading-tight text-vinho">
-            Existem histórias que merecem ser guardadas em segredo.
-          </h2>
+.botao {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  border: 1px solid var(--vinho);
+  border-radius: 5px;
+  padding: 15px 20px;
+  background: var(--vinho);
+  color: var(--creme);
+  font: 12px 'Cinzel', serif;
+  letter-spacing: 1px;
+  transition: .2s;
+}
 
-          <div class="linha-rosa my-6"></div>
+.botao:hover {
+  background: var(--rosa);
+  color: var(--preto);
+}
 
-          <p class="text-sm sm:text-base leading-8 text-neutral-600">
-            Um clube literário feito por mulheres que encontram nos livros muito mais do que histórias: encontram sentimentos, mistérios, amizades e novos mundos.
-          </p>
+.botao-claro {
+  background: transparent;
+  color: var(--vinho);
+}
 
-          <p class="texto-manuscrito text-3xl sm:text-4xl leading-tight mt-6">
-            Entre, leitora. Seu próximo segredo começa aqui.
-          </p>
+.mascote {
+  width: 100%;
+  max-width: 420px;
+  margin: auto;
+  display: block;
+}
 
-          <div class="flex flex-wrap gap-3 mt-7">
-            <a href="#clube" class="botao">CONHEÇA O CLUBE</a>
-            <a href="#leituras" class="botao botao-claro">NOSSAS LEITURAS</a>
-          </div>
-        </div>
-
-        <div class="flex items-center justify-center min-w-0">
-          <div class="w-full text-center">
-
-            <!-- MASCOTE CORVO INCORPORADO NO HTML -->
-            <img
-              src="data:image/webp;base64,COLE_AQUI_O_CODIGO_BASE64_DA_IMAGEM_DO_CORVO"
-              alt="Mascote corvo do clube literário Página Secreta"
-              class="corvo"
-              loading="eager"
-            >
-
-            <p class="texto-manuscrito text-3xl sm:text-4xl -mt-1">
-              Nosso guardião dos segredos
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section id="clube" class="py-16 sm:py-20 text-center">
-      <p class="text-xs tracking-[4px] text-rosa mb-3">MUITO MAIS QUE LER</p>
-
-      <h2 class="titulo-secao text-2xl sm:text-3xl">
-        Bem-vinda ao nosso clube
-      </h2>
-
-      <div class="w-16 h-[2px] bg-rosa mx-auto my-5"></div>
-
-      <p class="text-sm sm:text-base leading-8 text-neutral-300 max-w-2xl mx-auto">
-        A Página Secreta é uma comunidade exclusivamente feminina para leitoras de todos os gêneros literários. Aqui cabem romances, fantasias, suspenses, terrores, dramas e todas aquelas histórias que continuam com a gente mesmo depois da última página.
-      </p>
-
-      <p class="texto-manuscrito text-3xl sm:text-4xl mt-6">
-        Um livro pode ser o começo de uma grande amizade.
-      </p>
-    </section>
-
-    <section id="leituras" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 py-6">
-
-      <article class="cartao p-6 mt-3">
-        <div class="cartao-fita"></div>
-        <div class="text-center pt-2">
-          <span class="text-3xl">📚</span>
-
-          <h3 class="font-titulo text-lg text-vinho mt-4 mb-3">
-            Leitura do mês
-          </h3>
-
-          <p class="text-sm leading-7 text-neutral-600">
-            Uma história escolhida para compartilharmos emoções, opiniões, teorias e descobertas durante a leitura.
-          </p>
-
-          <p class="texto-manuscrito text-2xl mt-4">
-            Uma nova página a cada mês.
-          </p>
-        </div>
-      </article>
-
-      <article class="cartao p-6 mt-3">
-        <div class="cartao-fita"></div>
-        <div class="text-center pt-2">
-          <span class="text-3xl">🖤</span>
-
-          <h3 class="font-titulo text-lg text-vinho mt-4 mb-3">
-            Segredos literários
-          </h3>
-
-          <p class="text-sm leading-7 text-neutral-600">
-            Um espaço para teorias, personagens inesquecíveis, opiniões sinceras e conversas entre leitoras.
-          </p>
-
-          <p class="texto-manuscrito text-2xl mt-4">
-            Spoilers? Só com aviso!
-          </p>
-        </div>
-      </article>
-
-      <article id="encontros" class="cartao p-6 mt-3">
-        <div class="cartao-fita"></div>
-        <div class="text-center pt-2">
-          <span class="text-3xl">🕯️</span>
-
-          <h3 class="font-titulo text-lg text-vinho mt-4 mb-3">
-            Encontros secretos
-          </h3>
-
-          <p class="text-sm leading-7 text-neutral-600">
-            Momentos para conversar sobre livros, conhecer outras leitoras e transformar páginas em boas amizades.
-          </p>
-
-          <p class="texto-manuscrito text-2xl mt-4">
-            Histórias que aproximam.
-          </p>
-        </div>
-      </article>
-
-    </section>
-
-    <section class="papel rounded-lg text-center p-7 sm:p-12 mt-12">
-      <p class="text-rosa text-2xl">✦</p>
-
-      <h2 class="font-titulo text-2xl sm:text-3xl text-vinho mt-3">
-        Seu lugar está entre nós.
-      </h2>
-
-      <p class="text-sm leading-7 text-neutral-600 max-w-xl mx-auto mt-4">
-        Traga sua paixão pelos livros, suas teorias e sua vontade de conhecer outras mulheres que também encontram um mundo inteiro entre páginas.
-      </p>
-
-      <p class="texto-manuscrito text-3xl sm:text-4xl mt-5">
-        Todo livro guarda um segredo.
-      </p>
-
-      <a href="#inicio" class="botao mt-6">VOLTAR AO INÍCIO</a>
-    </section>
-
-  </main>
-
-  <footer class="border-t border-rose-950/50 mt-12">
-    <div class="max-w-6xl mx-auto px-5 py-8 text-center">
-
-      <div class="flex items-center justify-center gap-3">
-        <div class="selo">PS</div>
-
-        <div class="text-left">
-          <p class="font-titulo text-sm tracking-widest text-creme">PÁGINA SECRETA</p>
-          <p class="text-xs text-rosa">Todo livro guarda um segredo.</p>
-        </div>
-      </div>
-
-      <p class="text-xs text-neutral-400 mt-5">
-        Feito por leitoras, para leitoras.
-      </p>
-
-      <p class="text-xs text-neutral
+.legenda {
+  text-align: center;
+  margin-top
