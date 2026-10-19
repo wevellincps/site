@@ -3,10 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Página Secreta | Todo livro guarda um segredo</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Caveat:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Página Secreta — Todo livro guarda um segredo</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Caveat:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -15,9 +13,7 @@
   --rosa: #E8BFC6;
   --creme: #FDFBF7;
 }
-
 * { box-sizing: border-box; scroll-behavior: smooth; }
-
 body {
   margin: 0;
   background: var(--preto);
@@ -26,41 +22,31 @@ body {
   background-image: radial-gradient(#4A0E17 .8px, transparent .8px);
   background-size: 20px 20px;
 }
-
 header {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 5;
   background: rgba(18,18,18,.97);
   border-bottom: 1px solid var(--vinho);
 }
-
-.container {
-  width: min(1100px, 100%);
-  margin: auto;
-  padding: 0 22px;
-}
-
+.container { max-width: 1100px; margin: auto; padding: 0 20px; }
 .topo {
+  min-height: 78px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 15px;
-  padding-top: 16px;
-  padding-bottom: 16px;
 }
-
 .marca {
   display: flex;
   align-items: center;
-  gap: 12px;
-  text-decoration: none;
+  gap: 10px;
   color: var(--creme);
+  text-decoration: none;
 }
-
 .selo {
-  width: 45px;
-  height: 45px;
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--rosa);
   border-radius: 50%;
   display: grid;
@@ -68,127 +54,258 @@ header {
   color: var(--rosa);
   font-family: 'Cinzel', serif;
 }
-
 .marca h1 {
-  font: 500 14px 'Cinzel', serif;
+  margin: 0;
+  font: 500 13px 'Cinzel', serif;
   letter-spacing: 2px;
-  margin: 0 0 4px;
 }
-
 .marca p {
+  margin: 5px 0 0;
+  color: var(--rosa);
   font-size: 9px;
   letter-spacing: 1px;
-  margin: 0;
-  color: var(--rosa);
 }
-
-nav {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
+nav { display: flex; flex-wrap: wrap; gap: 15px; }
 nav a {
   color: var(--creme);
   text-decoration: none;
   font-size: 10px;
   letter-spacing: 1px;
 }
-
 nav a:hover { color: var(--rosa); }
-
 .hero {
   margin-top: 18px;
-  background-color: var(--creme);
-  background-image: radial-gradient(var(--rosa) .7px, transparent .7px);
-  background-size: 13px 13px;
-  color: var(--preto);
   border-radius: 10px;
   overflow: hidden;
+  color: var(--preto);
+  background: var(--creme);
+  background-image: radial-gradient(var(--rosa) .7px, transparent .7px);
+  background-size: 13px 13px;
 }
-
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 30px;
-  padding: 42px;
+  gap: 25px;
+  padding: 38px;
 }
-
 .etiqueta {
+  color: var(--vinho);
   font-size: 12px;
   letter-spacing: 3px;
-  color: var(--vinho);
   margin-bottom: 20px;
 }
-
-h2, h3 { font-family: 'Cinzel', serif; }
-
 .hero h2 {
-  font-size: clamp(28px, 4vw, 45px);
-  line-height: 1.35;
-  font-weight: 400;
   color: var(--vinho);
+  font: 400 clamp(29px, 4vw, 44px)/1.35 'Cinzel', serif;
   margin: 0;
 }
-
-.linha {
-  height: 3px;
-  width: 75px;
-  background: var(--rosa);
-  margin: 25px 0;
-}
-
-.descricao {
-  color: #626262;
-  font-size: 15px;
-  line-height: 2;
-}
-
-.manuscrita {
-  font: 32px 'Caveat', cursive;
-  color: var(--vinho);
-  line-height: 1.35;
-}
-
-.botoes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 25px;
-}
-
+.linha { width: 75px; height: 3px; background: var(--rosa); margin: 25px 0; }
+.descricao { color: #626262; font-size: 14px; line-height: 2; }
+.manuscrita { color: var(--vinho); font: 32px/1.3 'Caveat', cursive; }
+.botoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
 .botao {
   display: inline-block;
-  text-decoration: none;
-  text-align: center;
+  padding: 14px 18px;
   border: 1px solid var(--vinho);
   border-radius: 5px;
-  padding: 15px 20px;
   background: var(--vinho);
   color: var(--creme);
+  text-decoration: none;
+  text-align: center;
   font: 12px 'Cinzel', serif;
   letter-spacing: 1px;
-  transition: .2s;
 }
-
-.botao:hover {
-  background: var(--rosa);
-  color: var(--preto);
-}
-
-.botao-claro {
-  background: transparent;
-  color: var(--vinho);
-}
-
-.mascote {
-  width: 100%;
-  max-width: 420px;
+.botao:hover { background: var(--rosa); color: var(--preto); }
+.botao-claro { background: transparent; color: var(--vinho); }
+.mascote { display: block; width: 100%; max-width: 400px; margin: auto; }
+.legenda { text-align: center; margin: -5px 0 0; font: 32px 'Caveat', cursive; color: var(--vinho); }
+.secao { text-align: center; padding: 70px 0 35px; }
+.secao-etiqueta { color: var(--rosa); font-size: 12px; letter-spacing: 4px; }
+.secao h2 { color: var(--rosa); font: 400 clamp(25px, 4vw, 35px) 'Cinzel', serif; }
+.secao .linha { margin: 25px auto; }
+.texto {
+  max-width: 800px;
   margin: auto;
-  display: block;
+  color: #D0D0D0;
+  font-size: 14px;
+  line-height: 2.2;
 }
-
-.legenda {
+.secao .manuscrita { color: var(--rosa); margin-top: 28px; }
+.cartoes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 30px 0 65px; }
+.cartao {
+  padding: 28px 22px;
+  background: var(--creme);
+  color: var(--preto);
+  border: 1px solid var(--rosa);
+  border-radius: 5px;
+  box-shadow: 4px 4px 0 var(--vinho);
   text-align: center;
-  margin-top
+}
+.icone { font-size: 30px; }
+.cartao h3 { color: var(--vinho); font: 500 17px 'Cinzel', serif; margin: 16px 0 12px; }
+.cartao p { color: #626262; font-size: 13px; line-height: 1.9; }
+.cartao .manuscrita { font-size: 26px; }
+.convite {
+  background: var(--creme);
+  color: var(--preto);
+  text-align: center;
+  padding: 38px 24px;
+  border-radius: 8px;
+  margin-bottom: 55px;
+}
+.convite h2 { color: var(--vinho); font: 400 clamp(23px, 4vw, 32px) 'Cinzel', serif; }
+.convite p { max-width: 650px; margin: 18px auto; color: #626262; font-size: 14px; line-height: 1.9; }
+.convite .manuscrita { font-size: 34px; color: var(--vinho); }
+footer { border-top: 1px solid var(--vinho); padding: 30px 20px; text-align: center; }
+footer .marca { justify-content: center; }
+footer p { color: #AAA; font-size: 11px; }
+
+@media (max-width: 700px) {
+  .container { padding-left: 18px; padding-right: 18px; }
+  .topo { align-items: center; }
+  .marca h1 { font-size: 10px; }
+  .marca p { font-size: 8px; }
+  .selo { width: 36px; height: 36px; }
+  nav { max-width: 145px; justify-content: flex-end; gap: 9px; }
+  nav a { font-size: 9px; letter-spacing: 0; }
+  .hero-grid { grid-template-columns: 1fr; padding: 27px 23px; gap: 22px; }
+  .hero h2 { font-size: 30px; }
+  .mascote { max-width: 320px; }
+  .legenda { font-size: 29px; }
+  .cartoes { grid-template-columns: 1fr; }
+  .secao { padding-top: 55px; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="container topo">
+    <a class="marca" href="#inicio">
+      <div class="selo">PS</div>
+      <div>
+        <h1>PÁGINA SECRETA</h1>
+        <p>TODO LIVRO GUARDA UM SEGREDO</p>
+      </div>
+    </a>
+    <nav>
+      <a href="#inicio">INÍCIO</a>
+      <a href="#clube">O CLUBE</a>
+      <a href="#leituras">LEITURAS</a>
+      <a href="#encontros">ENCONTROS</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container" id="inicio">
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <p class="etiqueta">UM REFÚGIO ENTRE PÁGINAS</p>
+        <h2>Existem histórias que merecem ser guardadas em segredo.</h2>
+        <div class="linha"></div>
+        <p class="descricao">
+          Um clube literário feito por mulheres que encontram nos livros muito mais do que histórias: encontram sentimentos, mistérios, amizades e novos mundos.
+        </p>
+        <p class="manuscrita">Entre, leitora. Seu próximo segredo começa aqui.</p>
+        <div class="botoes">
+          <a class="botao" href="#clube">CONHEÇA O CLUBE</a>
+          <a class="botao botao-claro" href="#leituras">NOSSAS LEITURAS</a>
+        </div>
+      </div>
+
+      <div>
+        <svg class="mascote" viewBox="0 0 440 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Corvo mascote da Página Secreta">
+          <defs>
+            <linearGradient id="penas" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#37323A"/>
+              <stop offset="55%" stop-color="#17151A"/>
+              <stop offset="100%" stop-color="#08080B"/>
+            </linearGradient>
+            <linearGradient id="bico" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#E8BFC6"/>
+              <stop offset="100%" stop-color="#B86B7A"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="222" cy="370" rx="112" ry="15" fill="#4A0E17" opacity=".15"/>
+          <path d="M246 264 Q301 290 330 340 Q284 328 248 310 Q268 344 279 361 Q231 339 214 300Z" fill="url(#penas)" stroke="#4A0E17" stroke-width="2"/>
+          <path d="M135 245 Q119 188 164 153 Q207 121 258 153 Q301 177 296 231 Q293 280 251 308 Q206 333 163 302 Q134 281 135 245Z" fill="url(#penas)" stroke="#4A0E17" stroke-width="3"/>
+          <path d="M153 229 Q179 188 224 199 Q259 206 274 239 Q246 229 232 247 Q205 269 166 267 Q187 248 153 229Z" fill="#29252D" stroke="#4A0E17" stroke-width="2"/>
+          <path d="M174 237 Q204 224 236 240" fill="none" stroke="#62505A" stroke-width="3" stroke-linecap="round"/>
+          <path d="M191 185 Q165 147 177 108 Q184 80 213 74 Q251 69 271 100 Q287 124 268 158 L250 190Z" fill="url(#penas)" stroke="#4A0E17" stroke-width="3"/>
+          <path d="M174 103 Q163 71 186 47 Q211 22 242 43 Q268 59 260 89 Q252 116 223 121 Q193 124 174 103Z" fill="url(#penas)" stroke="#4A0E17" stroke-width="3"/>
+          <path d="M190 48 Q178 26 195 21 Q205 33 205 43 M211 42 Q211 17 228 19 Q234 31 225 45" fill="#242028" stroke="#4A0E17" stroke-width="2" stroke-linecap="round"/>
+          <path d="M251 76 Q282 78 319 94 Q290 107 257 103 Q267 91 251 76Z" fill="url(#bico)" stroke="#4A0E17" stroke-width="2"/>
+          <ellipse cx="235" cy="75" rx="10" ry="12" fill="#FDFBF7"/>
+          <ellipse cx="239" cy="76" rx="5" ry="7" fill="#121212"/>
+          <circle cx="241" cy="73" r="2" fill="#FFFFFF"/>
+          <ellipse cx="221" cy="94" rx="10" ry="5" fill="#E8BFC6" opacity=".65"/>
+          <path d="M183 300 L181 328 M222 308 L224 330" fill="none" stroke="#B86B7A" stroke-width="5" stroke-linecap="round"/>
+          <path d="M164 330 Q180 323 193 331 M207 332 Q223 324 237 332" fill="none" stroke="#B86B7A" stroke-width="5" stroke-linecap="round"/>
+          <path d="M92 104 L97 116 L109 121 L97 126 L92 139 L87 126 L75 121 L87 116Z" fill="#E8BFC6"/>
+          <path d="M326 172 L330 181 L339 185 L330 189 L326 199 L322 189 L313 185 L322 181Z" fill="#E8BFC6"/>
+          <circle cx="115" cy="177" r="4" fill="#B86B7A"/>
+          <circle cx="319" cy="62" r="4" fill="#B86B7A"/>
+          <path d="M200 155 C192 144 176 151 181 164 L200 180 L219 164 C224 151 208 144 200 155Z" fill="#4A0E17" stroke="#E8BFC6" stroke-width="1.5"/>
+        </svg>
+        <p class="legenda">Nosso guardião dos segredos</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="clube">
+    <p class="secao-etiqueta">MUITO MAIS QUE LER</p>
+    <h2>Bem-vinda ao nosso clube</h2>
+    <div class="linha"></div>
+    <p class="texto">
+      A Página Secreta é uma comunidade exclusivamente feminina para leitoras de todos os gêneros literários. Aqui cabem romances, fantasias, suspenses, terrores, dramas e todas aquelas histórias que continuam com a gente mesmo depois da última página.
+    </p>
+    <p class="manuscrita">Um livro pode ser o começo de uma grande amizade.</p>
+  </section>
+
+  <section class="cartoes" id="leituras">
+    <article class="cartao">
+      <div class="icone">📚</div>
+      <h3>Leitura do mês</h3>
+      <p>Uma história escolhida para compartilharmos emoções, opiniões, teorias e descobertas durante a leitura.</p>
+      <p class="manuscrita">Uma nova página a cada mês.</p>
+    </article>
+
+    <article class="cartao">
+      <div class="icone">🖤</div>
+      <h3>Segredos literários</h3>
+      <p>Um espaço para teorias, personagens inesquecíveis, opiniões sinceras e conversas entre leitoras.</p>
+      <p class="manuscrita">Spoilers? Só com aviso!</p>
+    </article>
+
+    <article class="cartao" id="encontros">
+      <div class="icone">🕯️</div>
+      <h3>Encontros secretos</h3>
+      <p>Momentos para conversar sobre livros, conhecer outras leitoras e transformar páginas em boas amizades.</p>
+      <p class="manuscrita">Histórias que aproximam.</p>
+    </article>
+  </section>
+
+  <section class="convite">
+    <p style="color:#B86B7A;font-size:24px">✦</p>
+    <h2>Seu lugar está entre nós.</h2>
+    <p>Traga sua paixão pelos livros, suas teorias e sua vontade de conhecer outras mulheres que também encontram um mundo inteiro entre páginas.</p>
+    <p class="manuscrita">Todo livro guarda um segredo.</p>
+    <a href="#inicio" class="botao">VOLTAR AO INÍCIO</a>
+  </section>
+</main>
+
+<footer>
+  <a class="marca" href="#inicio">
+    <div class="selo">PS</div>
+    <div>
+      <h1>PÁGINA SECRETA</h1>
+      <p>TODO LIVRO GUARDA UM SEGREDO</p>
+    </div>
+  </a>
+  <p>Feito por leitoras, para leitoras.</p>
+  <p>© 2026 Página Secreta. Todos os direitos reservados.</p>
+</footer>
+</body>
+</html>
