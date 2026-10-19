@@ -1,356 +1,361 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página Secreta | Clube Literário</title>
-  
-  <!-- Fontes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: #121212;
-      background-image: radial-gradient(rgba(197, 160, 89, 0.15) 1.5px, transparent 1.5px);
-      background-size: 20px 20px;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      color: #E5D3A6;
-      padding-bottom: 3rem;
-      min-height: 100vh;
-    }
-
-    /* 1. TOPO / NAVBAR FIXA */
-    header {
-      background-color: #181818;
-      border-bottom: 1px solid rgba(197, 160, 89, 0.25);
-      padding: 0.85rem 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    }
-
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .nav-logo {
-      width: 2.6rem;
-      height: 2.6rem;
-      border-radius: 50%;
-      background-color: #4A0E17;
-      border: 1.5px solid #C5A059;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-    }
-
-    .nav-logo span {
-      font-family: 'Cinzel', serif;
-      color: #E5D3A6;
-      font-weight: 700;
-      font-size: 0.85rem;
-    }
-
-    .nav-title h1 {
-      font-family: 'Cinzel', serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #E5D3A6;
-      line-height: 1.1;
-    }
-
-    .nav-title p {
-      font-family: 'Caveat', cursive;
-      color: #C5A059;
-      font-size: 0.95rem;
-    }
-
-    .nav-menu-btn {
-      background: none;
-      border: none;
-      color: #C5A059;
-      font-size: 1.6rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-    }
-
-    /* CONTAINER PRINCIPAL (LARGURA DE CELULAR) */
-    .container {
-      max-width: 420px;
-      margin: 1.5rem auto 0;
-      padding: 0 1rem;
-    }
-
-    /* 2. CARTÃO PRINCIPAL */
-    .main-card {
-      position: relative;
-      background-color: #F8F4EC;
-      border-radius: 1.5rem;
-      padding: 2.25rem 1.25rem 1.75rem;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(197, 160, 89, 0.5);
-      text-align: center;
-      color: #121212;
-    }
-
-    /* Fitas Adesivas (Washi Tapes) */
-    .tape-left {
-      position: absolute;
-      top: -0.6rem;
-      left: 10%;
-      width: 4.5rem;
-      height: 1.25rem;
-      background: rgba(197, 160, 89, 0.7);
-      transform: rotate(-3deg);
-      border-radius: 2px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-    }
-
-    .tape-right {
-      position: absolute;
-      top: -0.6rem;
-      right: 10%;
-      width: 4.5rem;
-      height: 1.25rem;
-      background: rgba(74, 14, 23, 0.4);
-      transform: rotate(3deg);
-      border-radius: 2px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-    }
-
-    /* Tag de Alerta */
-    .community-tag {
-      display: inline-block;
-      padding: 0.35rem 1.2rem;
-      border-radius: 999px;
-      border: 1.5px dashed #4A0E17;
-      color: #4A0E17;
-      font-family: 'Caveat', cursive;
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 1.2rem;
-      background-color: #FDFBF7;
-    }
-
-    /* Título do Cartão */
-    .hero-heading {
-      font-family: 'Cinzel', serif;
-      font-weight: 700;
-      font-size: 1.65rem;
-      color: #2C080E;
-      line-height: 1.25;
-      margin-bottom: 0.85rem;
-    }
-
-    .hero-heading span {
-      color: #4A0E17;
-      display: inline-block;
-    }
-
-    /* Frase / Citação */
-    .quote-box {
-      color: #555;
-      font-style: italic;
-      font-size: 0.95rem;
-      line-height: 1.5;
-      margin-bottom: 1.5rem;
-      padding: 0 0.5rem;
-    }
-
-    /* Botão Principal */
-    .action-btn {
-      display: block;
-      width: 100%;
-      padding: 0.85rem 1rem;
-      border-radius: 999px;
-      background-color: #4A0E17;
-      color: #E5D3A6;
-      font-weight: 600;
-      font-size: 0.9rem;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(74, 14, 23, 0.35);
-      border: 1px solid #C5A059;
-      margin-bottom: 1.75rem;
-      transition: transform 0.2s, background-color 0.2s;
-    }
-
-    .action-btn:active {
-      transform: scale(0.98);
-      background-color: #2C080E;
-    }
-
-    /* Mascote Redonda */
-    .mascot-frame {
-      width: 12.5rem;
-      height: 12.5rem;
-      margin: 0 auto;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #FDFBF7, #F4EAD5);
-      border: 3px dashed #C5A059;
-      padding: 0.6rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-    }
-
-    /* 3. SECÇÃO INFERIOR ("Explore nosso cantinho") */
-    .section-title {
-      text-align: center;
-      margin: 2.25rem 0 1.25rem;
-      font-family: 'Caveat', cursive;
-      color: #C5A059;
-      font-size: 1.35rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-
-    .cards-scroll {
-      display: flex;
-      gap: 1rem;
-      overflow-x: auto;
-      padding-bottom: 1rem;
-      scroll-snap-type: x mandatory;
-    }
-
-    .cards-scroll::-webkit-scrollbar {
-      display: none;
-    }
-
-    .sub-card {
-      flex: 0 0 110px;
-      height: 110px;
-      background-color: #F8F4EC;
-      border-radius: 1rem;
-      border: 1px solid rgba(197, 160, 89, 0.4);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #4A0E17;
-      font-family: 'Cinzel', serif;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-align: center;
-      padding: 0.5rem;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-      position: relative;
-    }
-
-    .sub-card-tape {
-      position: absolute;
-      top: -0.4rem;
-      width: 2.5rem;
-      height: 0.8rem;
-      background: rgba(197, 160, 89, 0.6);
-      border-radius: 1px;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 2.5rem;
-      font-size: 0.75rem;
-      color: rgba(229, 211, 166, 0.5);
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página Secreta | Clube Literário</title>
+<style>
+:root {
+  --vinho: #4A0E17;
+  --ouro: #D4AF37;
+  --preto: #121212;
+  --creme: #FDFBF7;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--preto);
+  background: var(--creme);
+  font-family: Georgia, serif;
+}
+header {
+  padding: 15px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border-bottom: 1px solid #e5d5ad;
+  background: var(--creme);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.seal {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--ouro);
+  outline: 1px solid var(--vinho);
+  outline-offset: 3px;
+  border-radius: 50%;
+  background: var(--vinho);
+  color: var(--ouro);
+  font-size: 20px;
+  font-weight: bold;
+}
+.logo strong {
+  display: block;
+  color: var(--vinho);
+  letter-spacing: 2px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.logo small { font-style: italic; color: #75655e; }
+nav { display: flex; gap: 18px; font-size: 13px; }
+a { color: inherit; text-decoration: none; }
+nav a:hover { color: var(--vinho); }
+.hero-bg {
+  padding: 38px 16px;
+  background-color: var(--preto);
+  background-image: radial-gradient(#80652b 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+.hero {
+  max-width: 1050px;
+  margin: auto;
+  padding: clamp(28px, 6vw, 65px);
+  background: var(--vinho);
+  color: var(--creme);
+  border: 1px solid var(--ouro);
+  border-radius: 22px;
+  box-shadow: 0 15px 35px #0008;
+  position: relative;
+  overflow: hidden;
+}
+.hero:before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px solid #d4af3740;
+  border-radius: 15px;
+  pointer-events: none;
+}
+.hero-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  align-items: center;
+  gap: 30px;
+}
+.tag {
+  display: inline-block;
+  padding: 7px 13px;
+  border: 1px dashed var(--ouro);
+  border-radius: 25px;
+  color: var(--ouro);
+  font: 10px Arial, sans-serif;
+  letter-spacing: 1.5px;
+}
+h1 {
+  font-size: clamp(40px, 6vw, 68px);
+  font-weight: normal;
+  line-height: 1.05;
+  margin: 22px 0 16px;
+}
+h1 em { color: var(--ouro); }
+.hero p { color: #f3e7df; line-height: 1.8; }
+.hero p strong { color: var(--ouro); }
+.buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
+.btn {
+  display: inline-block;
+  padding: 13px 20px;
+  border: 1px solid var(--ouro);
+  border-radius: 30px;
+  background: var(--ouro);
+  color: var(--preto);
+  font: bold 12px Arial, sans-serif;
+  transition: .2s;
+}
+.btn:hover { transform: translateY(-3px); }
+.btn.secondary { background: transparent; color: var(--creme); }
+.mascot {
+  display: grid;
+  place-items: center;
+  position: relative;
+  padding: 20px 0;
+}
+.mascot-seal {
+  width: min(260px, 90%);
+  aspect-ratio: 1;
+  background: var(--creme);
+  border: 3px solid var(--ouro);
+  outline: 1px dashed var(--ouro);
+  outline-offset: 6px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  box-shadow: 0 10px 30px #0005;
+}
+.mascot-seal:before {
+  content: "PÁGINA SECRETA • LEITORAS •";
+  position: absolute;
+  top: 14px;
+  font: 8px Arial, sans-serif;
+  color: var(--vinho);
+  letter-spacing: 1.4px;
+}
+.mascot-seal:after {
+  content: "PS";
+  position: absolute;
+  bottom: 12px;
+  color: var(--vinho);
+  letter-spacing: 5px;
+  font-weight: bold;
+}
+.raven { width: 76%; height: 76%; }
+.tape {
+  position: absolute;
+  top: 5px;
+  left: 20px;
+  width: 78px;
+  height: 22px;
+  background: linear-gradient(120deg,#a77c24,#f8e8a9,#b48b32);
+  transform: rotate(-8deg);
+}
+main { max-width: 1100px; margin: auto; padding: 45px 20px; }
+.section-heading { text-align: center; margin-bottom: 28px; }
+.eyebrow {
+  color: var(--vinho);
+  font: 10px Arial, sans-serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+h2 { color: var(--vinho); font-size: clamp(26px,4vw,38px); font-weight: normal; margin: 8px 0; }
+.section-heading p { color: #776c65; }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.card {
+  background: white;
+  padding: 25px;
+  border: 1px solid #e7d9bb;
+  border-radius: 15px;
+  box-shadow: 0 7px 20px #25130c0b;
+  position: relative;
+  transition: .2s;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 12px 25px #25130c16; }
+.card:before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 35%;
+  width: 70px;
+  height: 17px;
+  background: #d4af3780;
+  transform: rotate(-3deg);
+}
+.card-icon { font-size: 32px; }
+.card h3 { color: var(--vinho); font-size: 22px; font-weight: normal; }
+.card p { color: #6e625c; font-size: 14px; line-height: 1.8; }
+.label {
+  display: inline-block;
+  padding: 5px 9px;
+  background: #f5ebd4;
+  color: var(--vinho);
+  border-radius: 20px;
+  font: 10px Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.card .btn { margin-top: 10px; }
+.join {
+  margin-top: 55px;
+  padding: 40px 25px;
+  text-align: center;
+  color: var(--creme);
+  background: var(--preto);
+  border: 1px solid var(--ouro);
+  border-radius: 18px;
+}
+.join h2 { color: var(--ouro); }
+.join p { color: #e5d9cf; }
+.join .btn { margin-top: 12px; }
+footer {
+  padding: 28px 20px;
+  background: var(--vinho);
+  color: var(--creme);
+  text-align: center;
+  font-size: 12px;
+}
+footer span { color: var(--ouro); }
+@media(max-width: 760px) {
+  header { flex-wrap: wrap; }
+  nav { width: 100%; justify-content: center; flex-wrap: wrap; }
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .buttons { justify-content: center; }
+  .mascot { min-height: 230px; }
+  .mascot-seal { width: 220px; }
+  .cards { grid-template-columns: 1fr; }
+  main { padding: 35px 17px; }
+}
+</style>
 </head>
 <body>
 
-  <!-- 1. BARRA SUPERIOR FIXA -->
-  <header>
-    <div class="nav-brand">
-      <div class="nav-logo">
-        <span>PS</span>
+<header>
+  <a class="logo" href="#inicio">
+    <span class="seal">P<span style="font-size:12px">S</span></span>
+    <span>
+      <strong>Página Secreta</strong>
+      <small>Todo livro guarda um segredo.</small>
+    </span>
+  </a>
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#leituras">Leituras</a>
+    <a href="#encontros">Encontros</a>
+    <a href="#mural">Mural</a>
+  </nav>
+</header>
+
+<section class="hero-bg" id="inicio">
+  <div class="hero">
+    <div class="hero-grid">
+      <div>
+        <span class="tag">✦ UM CLUBE FEITO POR MULHERES ✦</span>
+        <h1>Página <em>Secreta</em></h1>
+        <p><strong>Todo livro guarda um segredo.</strong><br>
+        Além dele, descobrimos mistérios.</p>
+        <p>Um cantinho só nosso, onde histórias viram conversas, teorias viram descobertas e cada página guarda novas possibilidades.</p>
+        <div class="buttons">
+          <a class="btn" href="#leituras">Descobrir o clube ✦</a>
+          <a class="btn secondary" href="#mural">Entrar no mural</a>
+        </div>
       </div>
-      <div class="nav-title">
-        <h1>Página Secreta 🖤</h1>
-        <p>Clube de Leitura</p>
-      </div>
-    </div>
-    <button class="nav-menu-btn" aria-label="Menu">☰</button>
-  </header>
 
-  <div class="container">
-    <!-- 2. CARTÃO PRINCIPAL (COMO NA IMAGEM DE REFERÊNCIA) -->
-    <main class="main-card">
-      <div class="tape-left"></div>
-      <div class="tape-right"></div>
-
-      <div class="community-tag">
-        ✦ Cantinho Oficial da Comunidade
-      </div>
-
-      <h2 class="hero-heading">
-        Bem-vindas ao <br><span>Página Secreta! 🖤</span>
-      </h2>
-
-      <p class="quote-box">
-        “Entre páginas, encontramos histórias.<br>Além delas, descobrimos mistérios.”
-      </p>
-
-      <a href="https://instagram.com" target="_blank" class="action-btn">
-        Oi, leitora! Pronta pro próximo capítulo? ✨
-      </a>
-
-      <!-- Mascote Ilustrada -->
-      <div class="mascot-frame">
-        <svg viewBox="0 0 200 200" style="width:100%; height:100%;">
-          <ellipse cx="100" cy="180" rx="40" ry="8" fill="#000" opacity="0.12" />
-          <path d="M 60,110 Q 50,150 70,165 Q 100,175 130,165 Q 150,150 140,110 Q 135,80 100,80 Q 65,80 60,110 Z" fill="#242424" />
-          <path d="M 70,120 Q 100,125 130,120 Q 135,150 100,165 Q 65,150 70,120 Z" fill="#181818" />
-          <circle cx="100" cy="70" r="38" fill="#242424" />
-          <circle cx="85" cy="62" r="7" fill="#FFF" /><circle cx="85" cy="62" r="4" fill="#121212" />
-          <circle cx="115" cy="62" r="7" fill="#FFF" /><circle cx="115" cy="62" r="4" fill="#121212" />
-          <path d="M 75,70 Q 100,92 125,70 Q 100,102 75,70 Z" fill="#C5A059" stroke="#9A7B3E" stroke-width="1.5" />
-          <rect x="70" y="125" width="60" height="42" rx="3" fill="#FDFBF7" stroke="#C5A059" stroke-width="2" />
-          <line x1="100" y1="125" x2="100" y2="167" stroke="#C5A059" stroke-width="1.5" stroke-dasharray="2,2" />
-          <text x="100" y="148" font-family="Cinzel" font-size="10" font-weight="bold" fill="#4A0E17" text-anchor="middle">PS</text>
-        </svg>
-      </div>
-    </main>
-
-    <!-- 3. SECÇÃO INFERIOR DA SUA REFERÊNCIA -->
-    <div class="section-title">
-      📖 Explore nosso cantinho literário
-    </div>
-
-    <div class="cards-scroll">
-      <div class="sub-card">
-        <div class="sub-card-tape"></div>
-        <span>📚<br>Leituras do Mês</span>
-      </div>
-      <div class="sub-card">
-        <div class="sub-card-tape" style="background: rgba(74, 14, 23, 0.4);"></div>
-        <span>💬<br>Grupo do WhatsApp</span>
-      </div>
-      <div class="sub-card">
-        <div class="sub-card-tape"></div>
-        <span>✨<br>Resenhas</span>
+      <div class="mascot">
+        <span class="tape"></span>
+        <div class="mascot-seal">
+          <svg class="raven" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Corvo leitor segurando um livro">
+            <ellipse cx="120" cy="202" rx="66" ry="9" fill="#d9c9a8"/>
+            <path d="M67 171 Q45 126 76 78 Q99 44 137 62 Q167 75 164 115 L184 141 L153 143 Q160 173 143 189 L84 189 Z" fill="#17151a" stroke="#D4AF37" stroke-width="3"/>
+            <path d="M84 110 Q48 113 43 145 Q69 151 91 132" fill="#27212a" stroke="#D4AF37" stroke-width="2"/>
+            <path d="M87 151 Q57 164 65 184 L105 184 L113 157" fill="#17151a" stroke="#D4AF37" stroke-width="2"/>
+            <path d="M103 66 Q84 41 103 28 L114 51 L128 22 L139 55 L158 39 L154 69" fill="#17151a" stroke="#D4AF37" stroke-width="3" stroke-linejoin="round"/>
+            <circle cx="143" cy="83" r="5" fill="#D4AF37"/>
+            <circle cx="144" cy="83" r="2" fill="#17151a"/>
+            <path d="M155 90 L184 99 L157 105 Z" fill="#D4AF37"/>
+            <path d="M91 140 Q115 119 145 140 L165 181 L92 181 Z" fill="#4A0E17" stroke="#D4AF37" stroke-width="3"/>
+            <path d="M89 145 L122 153 L122 190 L82 181 Z" fill="#FDFBF7" stroke="#D4AF37" stroke-width="2"/>
+            <path d="M122 153 L157 143 L165 180 L122 190 Z" fill="#f1e5cf" stroke="#D4AF37" stroke-width="2"/>
+            <path d="M98 158 L114 162 M98 166 L114 170 M131 161 L151 155 M131 170 L154 165" stroke="#8f7551" stroke-width="2" stroke-linecap="round"/>
+            <path d="M109 189 L106 202 M140 189 L145 202" stroke="#D4AF37" stroke-width="4" stroke-linecap="round"/>
+            <path d="M94 202 L113 202 M137 202 L155 202" stroke="#4A0E17" stroke-width="5" stroke-linecap="round"/>
+            <path d="M179 53 L184 42 L189 53 L200 58 L189 62 L184 73 L179 62 L168 58 Z" fill="#D4AF37"/>
+          </svg>
+        </div>
       </div>
     </div>
-
-    <footer>
-      <p>© Página Secreta • Todo livro guarda um segredo.</p>
-    </footer>
   </div>
+</section>
+
+<main>
+  <section id="leituras">
+    <div class="section-heading">
+      <span class="eyebrow">Nosso universo literário</span>
+      <h2>Entre páginas e segredos</h2>
+      <p>Uma nova história começa a cada encontro.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="card-icon">📚</div>
+        <span class="label">Edição especial</span>
+        <h3>Leitura do Mês</h3>
+        <p>Uma história escolhida para despertar emoções, teorias e conversas. O próximo livro será anunciado aqui!</p>
+        <a class="btn" href="#mural">Quero participar</a>
+      </article>
+
+      <article class="card" id="encontros">
+        <div class="card-icon">✉️</div>
+        <span class="label">Acesso reservado</span>
+        <h3>Próximos Encontros</h3>
+        <p>Nossos encontros são especiais e os detalhes são compartilhados com as integrantes do clube.</p>
+        <a class="btn" href="#mural">Ver informações</a>
+      </article>
+
+      <article class="card" id="mural">
+        <div class="card-icon">🖋️</div>
+        <span class="label">Spoilers à vista!</span>
+        <h3>Mural de Teorias</h3>
+        <p>Suspeitas, personagens duvidosos e finais inesperados. Aqui, nenhuma teoria é absurda demais!</p>
+        <a class="btn" href="#participar">Quero teorizar</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="join" id="participar">
+    <span class="eyebrow" style="color:#D4AF37">Um segredo compartilhado</span>
+    <h2>Seu próximo capítulo começa aqui.</h2>
+    <p>Um espaço exclusivamente feminino para quem ama ler, conversar e descobrir histórias juntas.</p>
+    <a class="btn" href="mailto:contato@seudominio.com?subject=Quero%20conhecer%20o%20Pagina%20Secreta">Tenho interesse ✦</a>
+  </section>
+</main>
+
+<footer>
+  <p><span>✦</span> Página Secreta <span>✦</span></p>
+  <p>Todo livro guarda um segredo.</p>
+  <p>Feito com amor, café e muitas páginas.</p>
+</footer>
 
 </body>
 </html>
