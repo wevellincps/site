@@ -4,227 +4,105 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página Secreta | Clube Literário</title>
-  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Caveat:wght@600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              wine: '#4A0E17',
+              wineDark: '#2C080E',
+              gold: '#C5A059',
+              goldLight: '#E5D3A6',
+              cream: '#FDFBF7',
+              creamCard: '#F8F4EC',
+              dark: '#121212',
+            }
+          },
+          fontFamily: {
+            serif: ['Cinzel', 'serif'],
+            hand: ['Caveat', 'cursive'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
     body {
-      background-color: #121212 !important;
-      background-image: radial-gradient(#2a221b 1.5px, transparent 1.5px) !important;
-      background-size: 24px 24px !important;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      color: #E5D3A6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem 1rem;
+      background-color: #121212;
+      background-image: radial-gradient(#2a221b 1px, transparent 1px);
+      background-size: 20px 20px;
     }
-
-    .site-container {
-      width: 100%;
-      max-width: 400px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.25rem;
-    }
-
-    /* Cabeçalho */
-    header {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      width: 100%;
-      justify-content: center;
-    }
-
-    .badge-ps {
-      width: 2.7rem;
-      height: 2.7rem;
-      border-radius: 50%;
-      background-color: #4A0E17;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(197, 160, 89, 0.6);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    }
-
-    .badge-ps span {
-      font-family: 'Cinzel', serif;
-      color: #E5D3A6;
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      font-weight: 700;
-    }
-
-    .brand-text h1 {
-      font-family: 'Cinzel', serif;
-      font-weight: 700;
-      color: #E5D3A6;
-      font-size: 1.15rem;
-      line-height: 1.1;
-      letter-spacing: 0.08em;
-    }
-
-    .brand-text p {
-      font-family: 'Caveat', cursive;
-      color: #C5A059;
-      font-size: 0.95rem;
-    }
-
-    /* Cartão Principal */
-    .hero-card {
-      position: relative;
-      background-color: #F8F4EC;
-      border-radius: 1.25rem;
-      padding: 2rem 1.5rem 1.5rem;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(197, 160, 89, 0.4);
-      text-align: center;
-      color: #121212;
-      width: 100%;
-    }
-
     .washi-tape-gold {
-      position: absolute;
-      top: -0.7rem;
-      left: 50%;
-      transform: translateX(-50%) rotate(-1deg);
-      width: 7rem;
-      height: 1.4rem;
-      background: linear-gradient(135deg, rgba(197, 160, 89, 0.7), rgba(229, 211, 166, 0.9));
-      border-radius: 2px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      background: linear-gradient(135deg, rgba(197, 160, 89, 0.4), rgba(229, 211, 166, 0.6));
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
     }
-
-    .tag-community {
-      display: inline-block;
-      padding: 0.25rem 1rem;
-      border-radius: 999px;
-      border: 1px dashed rgba(74, 14, 23, 0.4);
-      color: #4A0E17;
-      font-family: 'Caveat', cursive;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      background-color: #FDFBF7;
-    }
-
-    .hero-title {
-      font-family: 'Cinzel', serif;
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: #2C080E;
-      margin-bottom: 0.6rem;
-      line-height: 1.2;
-    }
-
-    .hero-title span {
-      color: #4A0E17;
-    }
-
-    .quote-text {
-      color: #4B5563;
-      font-style: italic;
-      font-size: 0.88rem;
-      margin-bottom: 1.5rem;
-      line-height: 1.45;
-    }
-
-    .btn-primary {
-      display: block;
-      width: 100%;
-      padding: 0.8rem 1rem;
-      border-radius: 999px;
-      background-color: #4A0E17;
-      color: #E5D3A6;
-      font-weight: 600;
-      font-size: 0.88rem;
-      text-decoration: none;
-      transition: background-color 0.2s ease;
-      box-shadow: 0 4px 12px rgba(74, 14, 23, 0.3);
-      border: 1px solid rgba(197, 160, 89, 0.4);
-    }
-
-    .btn-primary:hover {
-      background-color: #2C080E;
-    }
-
-    /* Mascote do Corvo */
-    .mascot-container {
-      margin-top: 1.25rem;
-      display: flex;
-      justify-content: center;
-    }
-
-    .mascot-bg {
-      width: 7.5rem;
-      height: 7.5rem;
-      border-radius: 50%;
-      background: linear-gradient(to bottom, #FDFBF7, #FAF5EA);
-      border: 2px solid rgba(197, 160, 89, 0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: inset 0 2px 6px rgba(0,0,0,0.05);
-    }
-
-    /* Rodapé */
-    footer {
-      text-align: center;
-      font-size: 0.75rem;
-      color: rgba(229, 211, 166, 0.6);
-      letter-spacing: 0.03em;
+    .washi-tape-wine {
+      background: linear-gradient(135deg, rgba(74, 14, 23, 0.5), rgba(44, 8, 14, 0.7));
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
     }
   </style>
 </head>
-<body>
+<body class="font-sans text-brand-dark min-h-screen pb-12 antialiased selection:bg-brand-gold selection:text-brand-wineDark">
 
-  <div class="site-container">
-    <!-- Cabeçalho com Logotipo -->
-    <header>
-      <div class="badge-ps">
-        <span>PS</span>
+  <!-- Cabeçalho -->
+  <header class="max-w-md mx-auto pt-6 px-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-brand-wine flex items-center justify-center border border-brand-gold/40 shadow-md">
+        <span class="font-serif text-brand-goldLight text-xs tracking-widest font-bold">PS</span>
       </div>
-      <div class="brand-text">
-        <h1>PÁGINA SECRETA</h1>
-        <p>Clube Literário</p>
+      <div>
+        <h1 class="font-serif font-bold text-brand-goldLight text-lg leading-none tracking-wider">PÁGINA SECRETA</h1>
+        <p class="font-hand text-brand-gold text-sm">Clube Literário</p>
       </div>
-    </header>
+    </div>
+    <button class="text-brand-goldLight p-2 rounded-lg bg-brand-wine/40 border border-brand-gold/20">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+    </button>
+  </header>
 
-    <!-- Cartão Central -->
-    <main class="hero-card">
-      <div class="washi-tape-gold"></div>
+  <!-- Conteúdo Principal -->
+  <main class="max-w-md mx-auto px-4 mt-6 space-y-8">
 
-      <div class="tag-community">
+    <!-- Card Principal (Hero) -->
+    <section class="relative bg-brand-creamCard rounded-2xl p-6 shadow-2xl border border-brand-gold/30 text-center">
+      <!-- Fita Adesiva Topo -->
+      <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-6 washi-tape-gold rotate-1 rounded-sm opacity-90"></div>
+
+      <!-- Tag de Destaque -->
+      <div class="inline-block px-4 py-1 rounded-full border border-dashed border-brand-wine/40 text-brand-wine font-hand text-base mb-4 bg-brand-cream">
         ✦ Cantinho Oficial da Comunidade
       </div>
 
-      <h2 class="hero-title">
-        Bem-vindas ao <br><span>Página Secreta!</span>
+      <!-- Título Principal -->
+      <h2 class="font-serif font-bold text-2xl text-brand-wineDark mb-2">
+        Bem-vindas ao <br><span class="text-brand-wine">Página Secreta!</span>
       </h2>
 
-      <p class="quote-text">
+      <!-- Slogan / Citação -->
+      <p class="text-gray-700 italic text-sm mb-6 max-w-xs mx-auto leading-relaxed">
         “Todo livro guarda um segredo. Além dele, descobrimos mistérios.”
       </p>
 
-      <a href="https://instagram.com" target="_blank" class="btn-primary">
+      <!-- Botão de Ação -->
+      <a href="#inscricao" class="inline-block w-full py-3 px-6 rounded-full bg-brand-wine hover:bg-brand-wineDark text-brand-goldLight font-medium text-sm transition-all shadow-md border border-brand-gold/40">
         Oi, leitora! Pronta pro próximo capítulo? ✨
       </a>
 
-      <!-- Mascote -->
-      <div class="mascot-container">
-        <div class="mascot-bg">
-          <svg viewBox="0 0 200 200" style="width:85%; height:85%;">
+      <!-- Ilustração do Mascote -->
+      <div class="mt-8 relative inline-block">
+        <div class="w-48 h-48 mx-auto rounded-full bg-gradient-to-b from-brand-cream to-amber-50/50 border-2 border-brand-gold/40 p-3 shadow-inner flex items-center justify-center">
+          <!-- Mascote SVG -->
+          <svg viewBox="0 0 200 200" class="w-full h-full">
             <ellipse cx="100" cy="180" rx="40" ry="8" fill="#000" opacity="0.15" />
             <path d="M 60,110 Q 50,150 70,165 Q 100,175 130,165 Q 150,150 140,110 Q 135,80 100,80 Q 65,80 60,110 Z" fill="#242424" />
             <path d="M 70,120 Q 100,125 130,120 Q 135,150 100,165 Q 65,150 70,120 Z" fill="#181818" />
@@ -234,19 +112,50 @@
             <circle cx="115" cy="62" r="7" fill="#FFF" />
             <circle cx="115" cy="62" r="4" fill="#121212" />
             <path d="M 75,70 Q 100,92 125,70 Q 100,102 75,70 Z" fill="#C5A059" stroke="#9A7B3E" stroke-width="1.5" />
+            <!-- Livrinho -->
             <rect x="70" y="125" width="60" height="42" rx="3" fill="#FDFBF7" stroke="#C5A059" stroke-width="2" />
             <line x1="100" y1="125" x2="100" y2="167" stroke="#C5A059" stroke-width="1.5" stroke-dasharray="2,2" />
             <text x="100" y="148" font-family="Cinzel" font-size="10" font-weight="bold" fill="#4A0E17" text-anchor="middle">PS</text>
           </svg>
         </div>
       </div>
-    </main>
+    </section>
 
-    <!-- Rodapé -->
-    <footer>
-      <p>© Página Secreta • Todo livro guarda um segredo.</p>
-    </footer>
-  </div>
+    <!-- Secção: Explore o Nosso Cantinho -->
+    <section>
+      <h3 class="font-hand text-xl text-brand-goldLight text-center mb-4 flex items-center justify-center gap-2">
+        <span>📖</span> Explore nosso cantinho literário
+      </h3>
+
+      <div class="space-y-4">
+        <!-- Card 1: Leitura do Mês -->
+        <div class="relative bg-brand-creamCard rounded-xl p-5 shadow-lg border border-brand-gold/20 flex items-center gap-4">
+          <div class="absolute -top-2 left-4 w-16 h-4 washi-tape-wine -rotate-2 rounded-sm"></div>
+          <div class="text-3xl">📚</div>
+          <div>
+            <h4 class="font-serif font-bold text-brand-wineDark text-base">Livro do Mês</h4>
+            <p class="text-xs text-gray-600">Descubra a leitura escolhida para este mês e participe nos debates.</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Encontros Secretos -->
+        <div class="relative bg-brand-creamCard rounded-xl p-5 shadow-lg border border-brand-gold/20 flex items-center gap-4">
+          <div class="absolute -top-2 right-4 w-16 h-4 washi-tape-gold rotate-3 rounded-sm"></div>
+          <div class="text-3xl">🗝️</div>
+          <div>
+            <h4 class="font-serif font-bold text-brand-wineDark text-base">Próximo Encontro</h4>
+            <p class="text-xs text-gray-600">Reuniões online exclusivas para membros do clube.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="text-center mt-12 text-xs text-brand-goldLight/60">
+    <p>© Página Secreta • Todo livro guarda um segredo.</p>
+  </footer>
 
 </body>
 </html>
