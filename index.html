@@ -4,34 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página Secreta | Todo livro guarda um segredo</title>
-
+  <meta name="description" content="Um clube literário feito por mulheres apaixonadas por histórias, livros e segredos.">
   <script src="https://cdn.tailwindcss.com"></script>
-
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Caveat:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            vinho: "#4A0E17",
-            vinhoEscuro: "#2B0A10",
-            rosa: "#E8BFC6",
-            rosaClaro: "#F6E3E6",
-            creme: "#FDFBF7",
-            papel: "#F5EEE8",
-            preto: "#121212"
+            vinho: '#4A0E17',
+            vinhoEscuro: '#2B0A10',
+            rosa: '#E8BFC6',
+            rosaClaro: '#F6E3E6',
+            creme: '#FDFBF7',
+            preto: '#121212'
           },
           fontFamily: {
-            titulo: ["Cinzel", "serif"],
-            texto: ["Plus Jakarta Sans", "sans-serif"],
-            manuscrita: ["Caveat", "cursive"]
+            titulo: ['Cinzel', 'serif'],
+            texto: ['Plus Jakarta Sans', 'sans-serif'],
+            manuscrita: ['Caveat', 'cursive']
           }
         }
       }
-    }
+    };
   </script>
-
   <style>
     * {
       box-sizing: border-box;
@@ -40,379 +36,244 @@
 
     body {
       margin: 0;
-      background-color: #121212;
+      background: #121212;
       color: #FDFBF7;
-      font-family: "Plus Jakarta Sans", sans-serif;
-      background-image: radial-gradient(#4A0E17 0.8px, transparent 0.8px);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-image: radial-gradient(#4A0E17 .8px, transparent .8px);
       background-size: 20px 20px;
     }
 
     .papel {
       background-color: #FDFBF7;
+      background-image: radial-gradient(#E8BFC6 .7px, transparent .7px);
+      background-size: 13px 13px;
       color: #121212;
-      background-image:
-        radial-gradient(#E8BFC6 0.6px, transparent 0.6px);
-      background-size: 12px 12px;
-    }
-
-    .cartao {
-      background: #FDFBF7;
-      border: 1px solid #E8BFC6;
-      border-radius: 8px;
-      box-shadow: 5px 5px 0 #4A0E17;
-    }
-
-    .fita {
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%) rotate(-3deg);
-      width: 85px;
-      height: 22px;
-      background: #E8BFC6;
-      opacity: 0.9;
     }
 
     .botao {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 20px;
+      border: 1px solid #4A0E17;
+      border-radius: 4px;
       background: #4A0E17;
       color: #FDFBF7;
-      border: 1px solid #4A0E17;
-      padding: 12px 22px;
-      border-radius: 3px;
-      font-family: "Cinzel", serif;
+      font-family: 'Cinzel', serif;
       font-size: 12px;
       letter-spacing: 1px;
-      transition: all 0.25s ease;
+      text-align: center;
+      transition: .25s;
     }
 
     .botao:hover {
       background: #E8BFC6;
       color: #121212;
       border-color: #E8BFC6;
-      transform: translateY(-2px);
     }
 
-    .titulo-secao {
-      font-family: "Cinzel", serif;
+    .botao-claro {
+      background: transparent;
+      color: #4A0E17;
+    }
+
+    .selo {
+      width: 48px;
+      height: 48px;
+      border: 1px solid #E8BFC6;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
       color: #E8BFC6;
-      letter-spacing: 2px;
-    }
-
-    .linha-decorativa {
-      width: 65px;
-      height: 2px;
-      background: #E8BFC6;
-      margin: 16px auto;
+      font-family: 'Cinzel', serif;
+      font-size: 17px;
     }
 
     .menu-link {
       color: #FDFBF7;
       font-size: 11px;
-      letter-spacing: 1.5px;
-      transition: color 0.2s;
+      letter-spacing: 1px;
+      transition: color .2s;
     }
 
     .menu-link:hover {
       color: #E8BFC6;
     }
 
-    .selo {
-      width: 46px;
-      height: 46px;
-      border: 1px solid #E8BFC6;
+    .titulo-secao {
+      font-family: 'Cinzel', serif;
       color: #E8BFC6;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: "Cinzel", serif;
-      font-size: 15px;
-      flex-shrink: 0;
+      letter-spacing: 2px;
+    }
+
+    .linha-rosa {
+      width: 70px;
+      height: 3px;
+      background: #E8BFC6;
     }
 
     .texto-manuscrito {
-      font-family: "Caveat", cursive;
+      font-family: 'Caveat', cursive;
       color: #4A0E17;
     }
 
-    .decoracao {
-      color: #E8BFC6;
-      font-size: 24px;
+    .cartao {
+      position: relative;
+      background: #FDFBF7;
+      color: #121212;
+      border: 1px solid #E8BFC6;
+      border-radius: 5px;
+      box-shadow: 4px 4px 0 #4A0E17;
+    }
+
+    .cartao-fita {
+      position: absolute;
+      top: -9px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-3deg);
+      width: 72px;
+      height: 18px;
+      background: #E8BFC6;
+      opacity: .9;
+    }
+
+    .corvo {
+      display: block;
+      width: 100%;
+      max-width: 540px;
+      height: auto;
+      margin: 0 auto;
+      object-fit: contain;
+    }
+
+    .cabecalho {
+      background: rgba(18, 18, 18, .97);
+      border-bottom: 1px solid rgba(74, 14, 23, .8);
     }
 
     @media (max-width: 640px) {
-      .menu-link {
-        font-size: 10px;
-        letter-spacing: 0.7px;
-      }
-
       .selo {
         width: 38px;
         height: 38px;
+        font-size: 14px;
+      }
+
+      .menu-link {
+        font-size: 9px;
+        letter-spacing: .4px;
+      }
+
+      .corvo {
+        max-width: 390px;
       }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- CABEÇALHO -->
-
-  <header class="border-b border-rose-950/50 bg-preto/95">
-    <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between gap-4">
-
-      <a href="#inicio" class="flex items-center gap-3">
+  <header class="cabecalho">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-3">
+      <a href="#inicio" class="flex items-center gap-3 min-w-0">
         <div class="selo">PS</div>
-
-        <div>
-          <h1 class="font-titulo text-sm sm:text-base tracking-widest text-creme">
-            PÁGINA SECRETA
-          </h1>
-          <p class="text-[9px] sm:text-[10px] text-rosa tracking-wider">
-            TODO LIVRO GUARDA UM SEGREDO
-          </p>
+        <div class="min-w-0">
+          <h1 class="font-titulo text-xs sm:text-base tracking-widest text-creme">PÁGINA SECRETA</h1>
+          <p class="text-[9px] sm:text-xs text-rosa tracking-wide">TODO LIVRO GUARDA UM SEGREDO</p>
         </div>
       </a>
 
-      <nav class="flex items-center gap-3 sm:gap-6">
+      <nav class="flex items-center gap-2 sm:gap-6">
         <a href="#inicio" class="menu-link">INÍCIO</a>
         <a href="#clube" class="menu-link">O CLUBE</a>
         <a href="#leituras" class="menu-link">LEITURAS</a>
         <a href="#encontros" class="menu-link">ENCONTROS</a>
       </nav>
-
     </div>
   </header>
 
+  <main id="inicio" class="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
 
-  <!-- INÍCIO -->
+    <section class="papel rounded-lg overflow-hidden">
+      <div class="grid md:grid-cols-2 items-center gap-5 sm:gap-8 p-6 sm:p-10 lg:p-12">
 
-  <main id="inicio" class="max-w-6xl mx-auto px-5 py-10 sm:py-16">
-
-    <section class="papel rounded-md overflow-hidden relative">
-
-      <div class="grid md:grid-cols-2 items-center gap-8 p-6 sm:p-12">
-
-        <div class="relative z-10">
-
-          <p class="text-xs tracking-[4px] text-vinho uppercase mb-5">
-            Um refúgio entre páginas
+        <div class="py-2">
+          <p class="text-xs sm:text-sm tracking-[3px] text-vinho mb-5">
+            UM REFÚGIO ENTRE PÁGINAS
           </p>
 
-          <h2 class="font-titulo text-3xl sm:text-5xl leading-tight text-vinho">
+          <h2 class="font-titulo text-3xl sm:text-4xl lg:text-5xl leading-tight text-vinho">
             Existem histórias que merecem ser guardadas em segredo.
           </h2>
 
-          <div class="w-16 h-1 bg-rosa my-6"></div>
+          <div class="linha-rosa my-6"></div>
 
-          <p class="text-sm leading-7 text-neutral-700 max-w-md">
-            Um clube literário feito por mulheres que encontram nos livros
-            muito mais do que histórias: encontram sentimentos, mistérios,
-            amizades e novos mundos.
+          <p class="text-sm sm:text-base leading-8 text-neutral-600">
+            Um clube literário feito por mulheres que encontram nos livros muito mais do que histórias: encontram sentimentos, mistérios, amizades e novos mundos.
           </p>
 
-          <p class="texto-manuscrito text-3xl mt-5">
+          <p class="texto-manuscrito text-3xl sm:text-4xl leading-tight mt-6">
             Entre, leitora. Seu próximo segredo começa aqui.
           </p>
 
-          <div class="mt-7 flex flex-wrap gap-3">
+          <div class="flex flex-wrap gap-3 mt-7">
             <a href="#clube" class="botao">CONHEÇA O CLUBE</a>
-            <a href="#leituras" class="botao !bg-transparent !text-vinho hover:!bg-rosa">
-              NOSSAS LEITURAS
-            </a>
+            <a href="#leituras" class="botao botao-claro">NOSSAS LEITURAS</a>
           </div>
-
         </div>
 
+        <div class="flex items-center justify-center min-w-0">
+          <div class="w-full text-center">
 
-        <!-- MASCOTE: CORVO COM LIVRO -->
+            <!-- MASCOTE CORVO INCORPORADO NO HTML -->
+            <img
+              src="data:image/webp;base64,COLE_AQUI_O_CODIGO_BASE64_DA_IMAGEM_DO_CORVO"
+              alt="Mascote corvo do clube literário Página Secreta"
+              class="corvo"
+              loading="eager"
+            >
 
-        <div class="flex justify-center items-center">
-          <div class="relative w-full max-w-sm">
-
-            <div class="absolute inset-4 border border-rosa rounded-full opacity-70"></div>
-
-            <svg viewBox="0 0 400 420" class="relative w-full" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Corvo literário segurando um livro">
-
-              <!-- círculo decorativo -->
-              <circle cx="200" cy="205" r="155" fill="#F6E3E6"/>
-              <circle cx="200" cy="205" r="140" fill="none" stroke="#E8BFC6" stroke-width="2" stroke-dasharray="4 8"/>
-
-              <!-- estrelas -->
-              <path d="M91 112 L97 128 L113 134 L97 140 L91 156 L85 140 L69 134 L85 128 Z" fill="#4A0E17"/>
-              <path d="M302 110 L307 122 L319 127 L307 132 L302 144 L297 132 L285 127 L297 122 Z" fill="#4A0E17"/>
-              <path d="M306 265 L310 275 L320 279 L310 283 L306 293 L302 283 L292 279 L302 275 Z" fill="#4A0E17"/>
-
-              <!-- corpo do corvo -->
-              <path d="M125 255
-                       C105 218 117 168 153 143
-                       C184 121 230 130 249 162
-                       C266 191 254 236 233 265
-                       L256 310
-                       L151 310 Z"
-                    fill="#121212"/>
-
-              <!-- asa -->
-              <path d="M143 198
-                       C159 174 190 177 211 199
-                       C226 216 222 244 205 262
-                       C184 245 162 225 143 198 Z"
-                    fill="#2B0A10"
-                    stroke="#4A0E17"
-                    stroke-width="3"/>
-
-              <!-- penas -->
-              <path d="M154 206 L181 237 M171 197 L197 229 M189 198 L211 221"
-                    stroke="#4A0E17"
-                    stroke-width="4"
-                    stroke-linecap="round"/>
-
-              <!-- cabeça -->
-              <circle cx="211" cy="143" r="44" fill="#121212"/>
-
-              <!-- topete -->
-              <path d="M181 109 L171 83 L197 101 L204 77 L218 103 L240 88 L235 116"
-                    fill="#121212"/>
-
-              <!-- bico -->
-              <path d="M246 139 L286 151 L246 162 Z" fill="#4A0E17"/>
-              <path d="M249 145 L274 151 L249 153 Z" fill="#E8BFC6"/>
-
-              <!-- olho -->
-              <circle cx="225" cy="137" r="11" fill="#FDFBF7"/>
-              <circle cx="228" cy="137" r="5" fill="#4A0E17"/>
-              <circle cx="230" cy="135" r="2" fill="#FDFBF7"/>
-
-              <!-- livro -->
-              <path d="M92 264
-                       Q135 247 174 272
-                       L174 345
-                       Q135 320 92 337 Z"
-                    fill="#4A0E17"
-                    stroke="#121212"
-                    stroke-width="3"/>
-
-              <path d="M174 272
-                       Q214 247 257 264
-                       L257 337
-                       Q214 320 174 345 Z"
-                    fill="#FDFBF7"
-                    stroke="#121212"
-                    stroke-width="3"/>
-
-              <!-- páginas -->
-              <path d="M102 278 Q138 268 164 284 M102 293 Q138 283 164 299 M102 308 Q138 298 164 314"
-                    fill="none"
-                    stroke="#E8BFC6"
-                    stroke-width="2"
-                    stroke-linecap="round"/>
-
-              <path d="M185 284 Q215 268 247 278 M185 299 Q215 283 247 293 M185 314 Q215 298 247 308"
-                    fill="none"
-                    stroke="#E8BFC6"
-                    stroke-width="2"
-                    stroke-linecap="round"/>
-
-              <!-- asas segurando o livro -->
-              <path d="M143 253 Q158 269 175 278"
-                    fill="none"
-                    stroke="#121212"
-                    stroke-width="13"
-                    stroke-linecap="round"/>
-
-              <path d="M224 252 Q203 267 191 278"
-                    fill="none"
-                    stroke="#121212"
-                    stroke-width="13"
-                    stroke-linecap="round"/>
-
-              <!-- pés -->
-              <path d="M157 310 L151 328 L164 328 L171 313"
-                    fill="none"
-                    stroke="#4A0E17"
-                    stroke-width="7"
-                    stroke-linecap="round"/>
-
-              <path d="M222 310 L227 328 L214 328 L208 313"
-                    fill="none"
-                    stroke="#4A0E17"
-                    stroke-width="7"
-                    stroke-linecap="round"/>
-
-              <!-- detalhe do livro -->
-              <path d="M174 272 L174 345"
-                    stroke="#E8BFC6"
-                    stroke-width="2"/>
-
-              <text x="200" y="380"
-                    text-anchor="middle"
-                    font-family="Cinzel, serif"
-                    font-size="15"
-                    fill="#4A0E17"
-                    letter-spacing="3">
-                PÁGINA SECRETA
-              </text>
-
-            </svg>
-
-            <p class="texto-manuscrito text-center text-3xl -mt-2">
+            <p class="texto-manuscrito text-3xl sm:text-4xl -mt-1">
               Nosso guardião dos segredos
             </p>
-
           </div>
         </div>
 
       </div>
-
     </section>
 
-
-    <!-- O CLUBE -->
-
     <section id="clube" class="py-16 sm:py-20 text-center">
-
-      <p class="text-xs tracking-[4px] text-rosa mb-3">
-        MUITO MAIS QUE LER
-      </p>
+      <p class="text-xs tracking-[4px] text-rosa mb-3">MUITO MAIS QUE LER</p>
 
       <h2 class="titulo-secao text-2xl sm:text-3xl">
         Bem-vinda ao nosso clube
       </h2>
 
-      <div class="linha-decorativa"></div>
+      <div class="w-16 h-[2px] bg-rosa mx-auto my-5"></div>
 
-      <p class="text-sm text-neutral-300 leading-7 max-w-2xl mx-auto">
-        A Página Secreta é uma comunidade exclusivamente feminina para quem
-        ama histórias de todos os gêneros. Aqui cabem romances, fantasias,
-        suspenses, terrores, dramas e aquelas leituras que deixam a cabeça
-        cheia de teorias.
+      <p class="text-sm sm:text-base leading-8 text-neutral-300 max-w-2xl mx-auto">
+        A Página Secreta é uma comunidade exclusivamente feminina para leitoras de todos os gêneros literários. Aqui cabem romances, fantasias, suspenses, terrores, dramas e todas aquelas histórias que continuam com a gente mesmo depois da última página.
       </p>
 
-      <p class="texto-manuscrito text-3xl sm:text-4xl mt-5">
-        Toda leitora tem uma história. Toda história guarda um segredo.
+      <p class="texto-manuscrito text-3xl sm:text-4xl mt-6">
+        Um livro pode ser o começo de uma grande amizade.
       </p>
-
     </section>
 
+    <section id="leituras" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 py-6">
 
-    <!-- CARTÕES -->
-
-    <section id="leituras" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 py-8">
-
-      <article class="cartao relative p-6 mt-3">
-        <div class="fita"></div>
-
-        <div class="text-center">
-          <span class="text-4xl">📚</span>
+      <article class="cartao p-6 mt-3">
+        <div class="cartao-fita"></div>
+        <div class="text-center pt-2">
+          <span class="text-3xl">📚</span>
 
           <h3 class="font-titulo text-lg text-vinho mt-4 mb-3">
             Leitura do mês
           </h3>
 
-          <p class="text-sm leading-6 text-neutral-700">
-            Uma história escolhida para compartilharmos emoções, opiniões,
-            teorias e descobertas ao longo da leitura.
+          <p class="text-sm leading-7 text-neutral-600">
+            Uma história escolhida para compartilharmos emoções, opiniões, teorias e descobertas durante a leitura.
           </p>
 
           <p class="texto-manuscrito text-2xl mt-4">
@@ -421,20 +282,17 @@
         </div>
       </article>
 
-
-      <article class="cartao relative p-6 mt-3">
-        <div class="fita"></div>
-
-        <div class="text-center">
-          <span class="text-4xl">🖤</span>
+      <article class="cartao p-6 mt-3">
+        <div class="cartao-fita"></div>
+        <div class="text-center pt-2">
+          <span class="text-3xl">🖤</span>
 
           <h3 class="font-titulo text-lg text-vinho mt-4 mb-3">
             Segredos literários
           </h3>
 
-          <p class="text-sm leading-6 text-neutral-700">
-            Espaço para teorias, personagens inesquecíveis, opiniões sinceras
-            e aquelas conversas que só quem leu entende.
+          <p class="text-sm leading-7 text-neutral-600">
+            Um espaço para teorias, personagens inesquecíveis, opiniões sinceras e conversas entre leitoras.
           </p>
 
           <p class="texto-manuscrito text-2xl mt-4">
@@ -443,74 +301,56 @@
         </div>
       </article>
 
-
-      <article id="encontros" class="cartao relative p-6 mt-3 sm:col-span-2 lg:col-span-1">
-        <div class="fita"></div>
-
-        <div class="text-center">
-          <span class="text-4xl">🕯️</span>
+      <article id="encontros" class="cartao p-6 mt-3">
+        <div class="cartao-fita"></div>
+        <div class="text-center pt-2">
+          <span class="text-3xl">🕯️</span>
 
           <h3 class="font-titulo text-lg text-vinho mt-4 mb-3">
             Encontros secretos
           </h3>
 
-          <p class="text-sm leading-6 text-neutral-700">
-            Momentos para conversar sobre livros, conhecer outras leitoras
-            e transformar páginas em boas amizades.
+          <p class="text-sm leading-7 text-neutral-600">
+            Momentos para conversar sobre livros, conhecer outras leitoras e transformar páginas em boas amizades.
           </p>
 
           <p class="texto-manuscrito text-2xl mt-4">
-            Nosso próximo encontro espera por você.
+            Histórias que aproximam.
           </p>
         </div>
       </article>
 
     </section>
 
-
-    <!-- CHAMADA FINAL -->
-
-    <section class="papel rounded-md text-center p-8 sm:p-12 mt-12 relative overflow-hidden">
-
-      <span class="decoracao">✦</span>
+    <section class="papel rounded-lg text-center p-7 sm:p-12 mt-12">
+      <p class="text-rosa text-2xl">✦</p>
 
       <h2 class="font-titulo text-2xl sm:text-3xl text-vinho mt-3">
-        Toda história começa com uma página.
+        Seu lugar está entre nós.
       </h2>
 
-      <p class="text-sm text-neutral-700 max-w-xl mx-auto mt-4 leading-7">
-        Talvez a sua próxima história favorita não esteja apenas em um livro,
-        mas nas pessoas que você vai conhecer pelo caminho.
+      <p class="text-sm leading-7 text-neutral-600 max-w-xl mx-auto mt-4">
+        Traga sua paixão pelos livros, suas teorias e sua vontade de conhecer outras mulheres que também encontram um mundo inteiro entre páginas.
       </p>
 
       <p class="texto-manuscrito text-3xl sm:text-4xl mt-5">
-        Guarde seu lugar entre nós.
+        Todo livro guarda um segredo.
       </p>
 
-      <a href="#inicio" class="botao mt-6">
-        VOLTAR AO INÍCIO
-      </a>
-
+      <a href="#inicio" class="botao mt-6">VOLTAR AO INÍCIO</a>
     </section>
 
   </main>
 
-
-  <!-- RODAPÉ -->
-
   <footer class="border-t border-rose-950/50 mt-12">
     <div class="max-w-6xl mx-auto px-5 py-8 text-center">
 
-      <div class="flex items-center justify-center gap-3 mb-3">
+      <div class="flex items-center justify-center gap-3">
         <div class="selo">PS</div>
 
         <div class="text-left">
-          <p class="font-titulo text-sm tracking-widest text-creme">
-            PÁGINA SECRETA
-          </p>
-          <p class="text-xs text-rosa">
-            Todo livro guarda um segredo.
-          </p>
+          <p class="font-titulo text-sm tracking-widest text-creme">PÁGINA SECRETA</p>
+          <p class="text-xs text-rosa">Todo livro guarda um segredo.</p>
         </div>
       </div>
 
@@ -518,12 +358,4 @@
         Feito por leitoras, para leitoras.
       </p>
 
-      <p class="text-xs text-neutral-500 mt-2">
-        © 2026 Página Secreta. Todos os direitos reservados.
-      </p>
-
-    </div>
-  </footer>
-
-</body>
-</html>
+      <p class="text-xs text-neutral
